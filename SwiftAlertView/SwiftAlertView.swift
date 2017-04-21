@@ -45,8 +45,8 @@ class SwiftAlertView: UIView {
     
     var buttonTitleColor: UIColor! // to change the title color of all buttons
     // TODO:
-    var confirmColor: UIColor = UIColor(hex: "FE4C3F")
-    var cancelColor: UIColor = UIColor(hex: "666666")
+    var confirmColor: UIColor = UIColor(red: 254 / 255, green: 76 / 255, blue: 63 / 255, alpha: 1)
+    var cancelColor: UIColor = UIColor(red: 102 / 255, green: 102 / 255, blue: 102 / 255, alpha: 1)
     var buttonHeight: Double! // default is 44
     
     var separatorColor: UIColor! // to change the separator color
@@ -413,7 +413,7 @@ class SwiftAlertView: UIView {
     }
     
     fileprivate func setUpDefaultAppearance() {
-        self.backgroundColor = UIColor(hex: "#f4f5f6")
+        self.backgroundColor = UIColor(red: 244 / 255, green: 245 / 255, blue: 246 / 255, alpha: 1)
         if let backgroundImage = backgroundImage {
             backgroundImageView = UIImageView(frame: self.bounds)
             backgroundImageView?.image = backgroundImage
@@ -424,7 +424,7 @@ class SwiftAlertView: UIView {
         if title != nil {
             titleLabel.numberOfLines = 0
             titleLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
-            titleLabel.textColor = UIConstants.AppTitleFontColor
+            titleLabel.textColor = UIColor(red: 102 / 255, green: 102 / 255, blue: 102 / 255, alpha: 1)
             titleLabel.font = UIFont.boldSystemFont(ofSize: 17)
             titleLabel.textAlignment = NSTextAlignment.center
             titleLabel.backgroundColor = UIColor.clear
@@ -433,7 +433,7 @@ class SwiftAlertView: UIView {
         if message != nil {
             messageLabel.numberOfLines = 0
             messageLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
-            messageLabel.textColor = UIConstants.AppFontColor
+            messageLabel.textColor = UIColor(red: 102 / 255, green: 102 / 255, blue: 102 / 255, alpha: 1)
             messageLabel.font = UIFont.systemFont(ofSize: 15)
             messageLabel.textAlignment = NSTextAlignment.center
             messageLabel.backgroundColor = UIColor.clear
