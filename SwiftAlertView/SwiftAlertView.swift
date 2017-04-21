@@ -606,10 +606,6 @@ class SwiftAlertView: UIView {
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-}
-
-
-extension SwiftAlertView {
     
     static func show(title: String?, message: String?, delegate: SwiftAlertViewDelegate?, cancelButtonTitle: String?, otherButtonTitles: [String]?, configureAppearance:(_ alertView: SwiftAlertView)->(Void), clickedButtonAction:@escaping (_ buttonIndex: Int)->(Void)){
         let alertView = SwiftAlertView(title: title, message: message, delegate: delegate, cancelButtonTitle: cancelButtonTitle, otherButtonTitles: otherButtonTitles)
@@ -618,6 +614,7 @@ extension SwiftAlertView {
         alertView.show()
     }
 }
+
 
 
 enum SwiftAlertViewAppearType : Int {
