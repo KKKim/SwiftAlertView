@@ -27,23 +27,23 @@ class ViewController: UITableViewController, SwiftAlertViewDelegate {
     
     // MARK: SwiftAlertViewDelegate
     
-    func alertView(alertView: SwiftAlertView, clickedButtonAtIndex buttonIndex: Int) {
+    func alertView(_ alertView: SwiftAlertView, clickedButtonAtIndex buttonIndex: Int) {
         print("Button Clicked At Index \(buttonIndex)")
     }
     
-    func didPresentAlertView(alertView: SwiftAlertView) {
+    func didPresentAlertView(_ alertView: SwiftAlertView) {
         print("Did Present Alert View\n")
     }
     
-    func didDismissAlertView(alertView: SwiftAlertView) {
+    func didDismissAlertView(_ alertView: SwiftAlertView) {
         print("Did Dismiss Alert View\n")
     }
     
 
     // MARK: TableView Delegate & Datasource
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: false)
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
         switch indexPath.row {
         case 0:
             let alertView = SwiftAlertView(title: nil, message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", delegate: self, cancelButtonTitle: "Cancel", otherButtonTitles: "OK")
@@ -72,11 +72,11 @@ class ViewController: UITableViewController, SwiftAlertViewDelegate {
             alertView.backgroundColor = UIColor ( red: 0.9852, green: 0.9827, blue: 0.92, alpha: 1.0 )
             
             alertView.titleLabel.textColor = UIColor ( red: 0.0, green: 0.7253, blue: 0.6017, alpha: 1.0 )
-            alertView.messageLabel.textColor = UIColor.orangeColor()
+            alertView.messageLabel.textColor = UIColor.orange
             alertView.titleLabel.font = UIFont(name: "Marker Felt", size: 30)
             alertView.messageLabel.font = UIFont(name: "Marker Felt", size: 20)
-            alertView.buttonAtIndex(0)?.setTitleColor(UIColor.purpleColor(), forState: UIControlState.Normal)
-            alertView.buttonAtIndex(1)?.setTitleColor(UIColor.purpleColor(), forState: UIControlState.Normal)
+//            alertView.buttonAtIndex(0)?.setTitleColor(UIColor.purple, for: UIControlState.Normal)
+//            alertView.buttonAtIndex(1)?.setTitleColor(UIColor.purple, for: UIControlState.Normal)
             alertView.buttonAtIndex(0)?.titleLabel?.font = UIFont(name: "Marker Felt", size: 20)
             alertView.buttonAtIndex(1)?.titleLabel?.font = UIFont(name: "Marker Felt", size: 20)
             
@@ -88,10 +88,10 @@ class ViewController: UITableViewController, SwiftAlertViewDelegate {
             let label = UILabel(frame: CGRect(x: 20, y: 0, width: 160, height: 200))
             label.text = "This is the custom content view"
             label.numberOfLines = 0
-            label.lineBreakMode = NSLineBreakMode.ByWordWrapping
-            label.textAlignment = NSTextAlignment.Center
+            label.lineBreakMode = NSLineBreakMode.byWordWrapping
+            label.textAlignment = NSTextAlignment.center
             view.addSubview(label)
-            view.backgroundColor = UIColor.yellowColor()
+            view.backgroundColor = UIColor.yellow
             
             let alertView = SwiftAlertView(contentView: view, delegate: self, cancelButtonTitle: "Cancel", otherButtonTitles: "OK")
             alertView.show()
@@ -104,8 +104,8 @@ class ViewController: UITableViewController, SwiftAlertViewDelegate {
             break
         case 5:
             let alertView = SwiftAlertView(title: "Lorem ipsum ", message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ", delegate: self, cancelButtonTitle: "Cancel", otherButtonTitles: "Button 1", "Button 2", "Button 3")
-            alertView.appearType = SwiftAlertViewAppearType.FlyFromTop
-            alertView.disappearType = SwiftAlertViewDisappearType.FlyToRight
+            alertView.appearType = SwiftAlertViewAppearType.flyFromTop
+            alertView.disappearType = SwiftAlertViewDisappearType.flyToRight
             alertView.appearTime = 1
             alertView.disappearTime = 1
             
@@ -126,14 +126,14 @@ class ViewController: UITableViewController, SwiftAlertViewDelegate {
         }
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("DemoCell", forIndexPath: indexPath) as UITableViewCell
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "DemoCell", for: indexPath) as UITableViewCell
         cell.textLabel?.text = demoTitles[indexPath.row]
         
         return cell
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return demoTitles.count
     }
 
