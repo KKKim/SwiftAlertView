@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 
-  s.name         = "SwiftAlertView"
+  s.name         = "AwesomeAlertView"
   s.version      = "1.2.0"
   s.summary      = "A powerful customizable Alert View written in Swift."
   s.description  = <<-DESC
